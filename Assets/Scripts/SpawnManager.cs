@@ -9,7 +9,7 @@ public class SpawnManager : MonoBehaviour
     private float spawnPosZ = 20;
 
     private float startDelay = 2;
-    private float spawnInterval = 2;
+    private float spawnInterval = 1.5f;
     void Start()
     {
         InvokeRepeating("SpawnRandomAnimal", startDelay, spawnInterval);
@@ -25,7 +25,7 @@ public class SpawnManager : MonoBehaviour
     void SpawnRandomAnimal()
     {
         //Generación aleatoria de animales
-        Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0, spawnPosZ);
+        Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0.8f, spawnPosZ);
         int animalIndex = Random.Range(0, animalPrefabs.Length);
         Instantiate(animalPrefabs[animalIndex], spawnPos, animalPrefabs[animalIndex].transform.rotation);
     }

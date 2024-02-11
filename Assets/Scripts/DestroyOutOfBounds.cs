@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Destroy : MonoBehaviour
 {
+    private GameObject contadorPuntos;
     private float topBound = 30;
-    private float lowerBound = -10;
+    private float lowerBound = 0;
     void Start()
     {
-
+        contadorPuntos = GameObject.FindGameObjectWithTag("contador");
     }
 
     // Update is called once per frame
@@ -20,7 +21,7 @@ public class Destroy : MonoBehaviour
         }
         else if (transform.position.z < lowerBound)
         {
-            Debug.Log("Game Over!");
+            contadorPuntos.GetComponent<ContadorPuntos>().incrementarVisitante();
             Destroy(gameObject);
             
         }

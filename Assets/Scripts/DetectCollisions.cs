@@ -4,20 +4,18 @@ using UnityEngine;
 
 public class DetectCollisions : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private GameObject contadorPuntos;
 
-    // Update is called once per frame
-    void Update()
+
+    private void Start()
     {
-        
+        contadorPuntos = GameObject.FindGameObjectWithTag("contador");
     }
     private void OnTriggerEnter(Collider other)
     {
+        
         Destroy(gameObject);
         Destroy(other.gameObject);
+        contadorPuntos.GetComponent<ContadorPuntos>().incrementarLocal();
     }
 }

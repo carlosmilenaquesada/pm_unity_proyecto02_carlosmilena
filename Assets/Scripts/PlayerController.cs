@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float horizontalInput;
-    public float speed = 10.0f;
-    public float xRange = 10;
+    private float speed = 20.0f;
+    private float xRange = 12;
     public GameObject projectilePrefab;
     void Start()
     {
@@ -27,9 +27,8 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
         }
         if (Input.GetKeyDown(KeyCode.Space))
-        {
-            //Lanzar el proyectil
-            Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
+        {            
+            Instantiate(projectilePrefab, transform.position + (Vector3.up*0.5f), projectilePrefab.transform.rotation);
         }
     }
 }
